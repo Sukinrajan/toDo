@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CRUD Application</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: antiquewhite;
+        }
+        li{
+         color: blue;
+         font-size: 25px;
+         
+        }
+        button{
+            border-radius: 30%;
+            margin-left: 30px;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1><remov style="color: black;">KYYBA</remov><remov style="color: red;">TECH</remov></h1>
+<div id="myDIV" class="header">
+    <h2>List of Employee's: </h2>
+     <!-- <form onsubmit="event.preventDefault(); save();"> -->
+    <label>Employee Name: </label> <input type="text" name="name" id="name" autofocus>
+     <!-- <label>Employee Number: </label> <input type="text" name="num" id="num" required><br><br>
+    <label>Employee Role: </label> <input type="text" name="role" id="role" placeholder="eg:Developer"><br><br> -->
+      <button onclick="save()"> SAVE </button>
+      <!-- <input type="submit" value="SUBMIT"> -->
+   <!-- </form> -->
+</div>
+
+<ul id="uList">
+  
+</ul>
+
+<script>
+
+function save() {
+  var li = document.createElement("li");
+  var iName = document.getElementById("name").value;
+  var txtNode = document.createTextNode(iName);
+  li.appendChild(txtNode);
+  if (iName === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("uList").appendChild(li);
+  }
+  document.getElementById("name").value = "";
+
+  var btnRemove = document.createElement("button");
+  var txt = document.createTextNode("REMOVE");
+  btnRemove.className = "close";
+  btnRemove.appendChild(txt);
+  li.appendChild(btnRemove);
+
+var close = document.getElementsByClassName("close");
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+
+ // function save(){
+        //     const getName=document.getElementById("name");
+        //     const out=document.getElementById("nameList");
+
+        //     let li=document.createElement("li"); 
+        //     li.innerHTML=getName.value;
+        //     out.appendChild(li);
+           
+        //     let del=document.createElement("button");
+        //     del.innerHTML="Delete";
+        //    li.appendChild(del);
+        // }
+
+         // function tryy(){
+        //     var name = [];
+        //    var getName=document.getElementById("name").value;
+        //     // var getName=document.getElementsByTagName("ul").value;
+        //        name.push(getName);
+
+        //          console.log(name);
+        //        document.getElementById("nameList").innerHTML=name
+        // }
+
+
+    //   function remove(name){
+    //     var name=document.getElementById("dname").value;
+    //     if(name==document.getElementById("name").value)
+    // li.remove();
+    //     }
+
+
+// out.addEventListener("click",function(e){
+// if (e.target.tagName==="BUTTON") {
+//     e.target.parentElement.remove();
+// }
+// },false);
+
+</script>
+
+</body>
+</html>
